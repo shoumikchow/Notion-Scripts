@@ -1,0 +1,3 @@
+notion
+tqdm
+requests
