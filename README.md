@@ -1,11 +1,13 @@
-# Notion-DB
+# Notion-Scripts
 
-A simple script for reading my Notion database and getting papers I want to read from my reading list.
-Uses [Notion-Py](https://github.com/jamalex/notion-py)
+Few scripts I use for QoL stuff on Notion.
+
+
+* paper_downloader.py: A simple script for reading my Notion database and getting papers I want to read from my reading list, based on progress and priority of the paper.
 
 ### Install Dependecies
 
 > pip3 install -r requirements.txt
 
 ### Usage
-> python3 notion_getter.py --collection &lt;database-url&gt; --token &lt;token&gt;
+> python3 paper_downloader.py --secret &lt;secret_key&gt;

@@ -1,3 +1,2 @@
-notion
 tqdm
 requests
