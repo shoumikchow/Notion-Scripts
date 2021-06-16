@@ -10,14 +10,15 @@ parser.add_argument('-s',
                     '--secret',
                     help='Get secret from Notion integrations')
 
-parser.add_argument('-p', '--priority', help='Add reading priority of paper')
+parser.add_argument('-p', '--priority', help='Add reading priority of paper (high, medium or low)')
 
 parser.add_argument('-url', '--url', help='paper url, either pdf or abs')
 
 args = parser.parse_args()
 paper_url = args.url
 secret = args.secret
-priority = args.priority
+priority = args.priority.title()
+
 
 paper_id = paper_url.split('/')[-1]
 if 'pdf' in paper_id:
@@ -78,4 +79,4 @@ headers = {
 }
 
 r = requests.post(BASE_URL, headers=headers, data=data)
-print(r.text)
+print(r.status_code)
