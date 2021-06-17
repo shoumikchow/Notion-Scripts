@@ -63,7 +63,7 @@ def add_(secret, paper_url, priority):
         "Notion-Version": f"{NOTION_VERSION}",
         "Content-Type": "application/json"
     }
-    print(data)
+
     r = requests.post(BASE_URL, headers=headers, data=data)
-    print(r.status_code)
+
     return r.status_code
