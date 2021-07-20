@@ -4,16 +4,23 @@ import arxiv
 import requests
 
 
-def add_(secret, paper_url, priority):
-
+def find_in_arxiv(paper_url):
     paper_id = paper_url.split('/')[-1]
     if 'pdf' in paper_id:
         paper_id = paper_id[:-4]
-
+    
     paper = next(arxiv.Search(id_list=[paper_id]).get())
     year = paper.published.year
     authors = [{"name": i.name} for i in paper.authors]
     title = paper.title
+
+    return year, authors, title, paper_id
+
+def add_(secret, paper_url, priority):
+
+    year, authors, title, paper_id = find_in_arxiv(paper_url)
+
+    print(year, authors, title)
 
     url = paper_url
     if "abs" in paper_url:
@@ -65,5 +72,6 @@ def add_(secret, paper_url, priority):
     }
 
     r = requests.post(BASE_URL, headers=headers, data=data)
+    
 
-    return r.status_code
+    return r
